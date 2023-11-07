@@ -4,6 +4,24 @@ pipeline {
             image 'python:3.9'
         }
     }
+
+ stage ('Build test Docker') {
+            steps {
+                script {
+				bat 'docker build -t python-docker ./'
+				
+                     }
+            }
+        }
+      
+        stage ('Run Jmeter Docker') {
+            steps {
+				script{
+                bat 'docker run python-docker'
+                
+				}
+			}
+        }
     stages {
         stage('Build') {
             steps {
