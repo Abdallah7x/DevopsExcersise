@@ -1,11 +1,11 @@
 pipeline {
     agent {
         docker {
-            image 'python:3.9'
+            image 'python:latest'
         }
     }
 
- stage ('Build test Docker') {
+ stage ('Build python Docker') {
             steps {
                 script {
 				bat 'docker build -t python-docker ./'
@@ -14,7 +14,7 @@ pipeline {
             }
         }
       
-        stage ('Run Jmeter Docker') {
+        stage ('Run python Docker') {
             steps {
 				script{
                 bat 'docker run python-docker'
