@@ -12,7 +12,7 @@ pipeline {
 				
                      }
             }
-        }
+       
       
         stage ('Run python Docker') {
             steps {
@@ -22,16 +22,7 @@ pipeline {
 				}
 			}
         }
-    stage {
-        stage('Build') {
-            steps {
-                sh 'pip install -r requirements.txt'
-            }
-        }
-        stage('Test') {
-            steps {
-                sh 'python script.py'
-            }
-        }
-    }
-}
+   
+      }
+        
+    
