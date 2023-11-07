@@ -6,7 +6,7 @@ pipeline {
     }
 
  stages ('Build python Docker') {
-            steps {
+            stage {
                 script {
 				bat 'docker build -t python-docker ./'
 				
