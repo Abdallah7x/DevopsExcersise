@@ -4,25 +4,20 @@ pipeline {
             image 'python:latest'
         }
     }
-
- stages ('Build python Docker') {
-            stage {
-                script {
-				bat 'docker build -t python-docker ./'
-				
-                     }
-            }
-       
-      
-        stage ('Run python Docker') {
+    stages {
+        stage('Build python Docker') {
             steps {
-				script{
-                bat 'docker run python-docker'
-                
-				}
-			}
+                script {
+                    bat 'docker build -t python-docker ./'
+                }
+            }
         }
-   
-      }
+        stage('Run python Docker') {
+            steps {
+                script {
+                    bat 'docker run python-docker'
+                }
+            }
         }
-    
+    }
+}
